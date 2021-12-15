@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>In hinh chữ nhật</title>
+</head>
+<body>
+<script>
+let chieudai
+let chieurong
+let x
+let y
+chieudai = parseInt(prompt(`Enter số ngôi sao của chiều dai`))
+chieurong=parseInt(prompt(`Enter số ngôi sao của chiều rộng`))
+for (y = 1; y<=chieurong; y++){
+    document.write(`<br>`)
+    for (x = 1; x<=chieudai; x++) {
+        if (x===1||x===chieudai || y===1||y===chieurong) {
+            document.write(`*`)
+        } else {
+            document.write(`&nbsp&nbsp`)
+        }
+
+    }
+}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính Lãi Ngân Hàng</title>
+</head>
+<body>
+<h1>Tính Lãi Ngân hàng</h1>
+<table>
+    <tr>
+        <td style="width: 200px"><label >Số tiền gửi(VND):</label></td>
+        <td><input id="monney" type="text"></td>
+    </tr>
+<tr>
+    <td><label>Gói kỳ hạn gửi :</label></td>
+    <td>
+        <select id="laisuat">
+            <option value="0">Không kỳ hạn(1%/Năm)</option>
+            <option value="1" name="1">1 tháng(3%/Năm)</option>
+            <option value="3" name="3">3 tháng(3.3%/Năm)</option>
+            <option value="6">6 tháng(4%/Năm)</option>
+            <option value="12">12 tháng(5.5%/Năm)</option>
+            <option value="18">18 tháng(6%/Năm)</option>
+        </select>
+    </td>
+</tr>
+    <tr>
+        <td><label>Thời gian gửi:(Tháng)</label></td>
+        <td><input id="year" type="text"></td>
+    </tr>
+</table>
+<br>
+<p id="print">Số Tiền lãi là :</p>
+<button onclick="tinhlai()" > Tính Lãi</button>
+</body>
+<script>
+    function tinhlai() {
+        var sotiengui=parseFloat(document.getElementById("monney").value)
+        let thoigian=parseFloat(document.getElementById("year").value)
+        let kyhan=parseInt(document.getElementById("laisuat").value)
+        let sotienbandau=sotiengui;
+        let  Tong_tienlai
+        let tienlai
+        if (kyhan===0) {
+           Tong_tienlai =thoigian*(sotiengui*0.01/12);
+        }else {
+            let solandaohan = parseInt(thoigian / kyhan)
+            for (i = 0; i < solandaohan; i++) {
+                if (kyhan === 1) {
+                    tienlai = 1* (sotiengui * 0.03 / 12)
+                   sotiengui = sotiengui + tienlai
+                }
+                if (kyhan === 3) {
+                    tienlai = 3 * (sotiengui * 0.033 / 12)
+                     sotiengui = sotiengui + tienlai
+                }
+                if (kyhan === 6) {
+                    tienlai = 6 * (sotiengui * 0.04 / 12)
+                    sotiengui = sotiengui + tienlai
+                }
+                if (kyhan === 12) {
+                    tienlai = 12 * (sotiengui * 0.055/ 12)
+                    sotiengui = sotiengui + tienlai
+                }
+                if (kyhan === 18) {
+                    tienlai = 18 * (sotiengui * 0.06/ 12)
+                    sotiengui = sotiengui + tienlai
+                }
+            }
+            Tong_tienlai=sotiengui-sotienbandau
+        }
+
+    document.getElementById("print").innerHTML="số tiền lãi là: " +Tong_tienlai +" VNĐ"
+    }
+</script>
+</html>

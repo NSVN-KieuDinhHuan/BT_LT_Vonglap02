@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tinh Dai Thua</title>
+</head>
+<body>
+<h1>Tính Dai Thừa</h1>
+<label>Nhập số</label>
+<input id="so">
+<br>
+<pre id="print"></pre>
+<button onclick="Tinhdaithua()">Tính dai thừa</button>
+<script>
+    function Tinhdaithua() {
+        let number=parseInt(document.getElementById("so").value)
+        let daithua=1
+        for(i=number;i>=1;i--){
+            daithua=daithua*i
+        }
+        document.getElementById("print").innerHTML=daithua
+    }
+</script>
+</body>
+</html>
